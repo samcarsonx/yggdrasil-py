@@ -61,5 +61,18 @@ def signout(username:str, password:str):
     if 'error' in response: raise Exception(f"{response['error']}: {response['errorMessage']}")
     return False
 
+def invalidate(username:str, password:str):
+    '''
+    Invalidates accessTokens using a client/access token pair.
+    Parameters:
+      accessToken - Valid accessToken, gained from authenticate()
+      clientToken - Identical to the clientToken used to get the accessToken in the first place
+    '''
+    data = json.dumps({"accessToken":accessToken, "clientToken":clientToken})
+    try: response = json.loads(requests.post(url + '/signout', data=data, headers=headers).text)
+    except json.decoder.JSONDecodeError: return True
+    if 'error' in response: raise Exception(f"{response['error']}: {response['errorMessage']}")
+    return False
+
 if __name__ == '__main__':
     raise Exception('Must be imported, not run as standalone')
