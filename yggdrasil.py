@@ -8,8 +8,8 @@ import requests, json
 url = 'https://authserver.mojang.com'
 headers = {'Content-Type': 'application/json'}
 
-def authenticate(username, password, clientToken = None, requestUser = False):
-    data = json.dumps({"agent":{"name":"Minecraft","version":1}, "username":username, "password":password, "clientToken":clientToken, "requestUser":requestUser})
+def authenticate(username, password, agentName = 'Minecraft', clientToken = None, requestUser = False):
+    data = json.dumps({"agent":{"name":agentName,"version":1}, "username":username, "password":password, "clientToken":clientToken, "requestUser":requestUser})
     response = json.loads(requests.post(url + '/authenticate', data=data, headers=headers).text)
     if 'error' in response: raise Exception(f"{response['error']}: {response['errorMessage']}")
     else: return response
