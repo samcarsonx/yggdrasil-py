@@ -7,8 +7,9 @@ This wrapper is supported only for Python 3.6 and above because of the use of f-
 Minecraft 1.6 introduced a new authentication scheme called **Yggdrasil** which completely replaces the [previous authentication system](https://wiki.vg/Legacy_Authentication "Legacy Authentication"). Mojang's other game, Scrolls, uses this method of authentication as well.
 
 ## Authenticate
+*Authenticates a user using their password.*
 ```python
-def authenticate(username, password, agentName = 'Minecraft', clientToken = None, requestUser = False):
+def authenticate(username:str, password:str, agentName:str = 'Minecraft', clientToken:str = None, requestUser:str = False):
 ```
 **Arguments:**
 * String *(required)*
@@ -31,23 +32,20 @@ from yggdrasil import authenticate
 import random
 
 randomClientToken = random.randint(10000,99999)
-mc = authenticate('test@example.com','p455w0rd', 'Minecraft', 'hello', randomClientToken, False)
+mc = authenticate('test@example.com','p455w0rd', 'Minecraft', randomClientToken, False)
 print(mc['accessToken'])
 ```
 
 ## Refresh
+*Refreshes a valid accessToken. It can be used to keep a user logged in between gaming sessions and is preferred over storing the user's password in a file.*
 ```python
-def refresh(accessToken, clientToken, identifier, name, requestUser = False):
+def refresh(accessToken:str, clientToken:str, requestUser:bool = False):
 ```
 **Arguments:**
 * String *(required)*
 Valid `accessToken`, gained from `authenticate()`
 * String *(required)*
 Identical to the `clientToken` used to get the `accessToken` in the first place
-* String *(required)*
-Profile identifier in hexadecimal form
-* String *(required)*
-Player username
 * Boolean *(optional)*
 If set to `True` request for user object too (default is `False`)
 
@@ -62,8 +60,9 @@ print(refresh(mc['accessToken'], randomClientToken))
 ```
 
 ## Validate
+*Checks if an accessToken is usable for authentication with a Minecraft server.*
 ```python
-def validate(accessToken, clientToken = None):
+def validate(accessToken:str, clientToken:str = None):
 ```
 **Arguments:**
 * String *(required)*
@@ -81,8 +80,9 @@ print(validate(mc['accessToken'], randomClientToken))
 ```
 
 ## Signout
+*Invalidates accessTokens using an account's username and password.*
 ```python
-def signout(username, password):
+def signout(username:str, password:str):
 ```
 **Arguments:**
 * String *(required)*
@@ -91,10 +91,30 @@ Username of agent/Mojang email (if migrated)
 Password for the account used
 
 **Response:**
-* Returns `True` unless something went wrong in which case `False`
+* Returns `True` unless error thrown
 
 **Example:**
 ```python
 from yggdrasil import signout
 print(signout('test@example.com','p455w0rd'))
+```
+
+## Invalidate
+*Invalidates accessTokens using a client/access token pair.*
+```python
+def invalidate(username:str, password:str):
+```
+**Arguments:**
+* String *(required)*
+Valid `accessToken`, gained from `authenticate()`
+* String *(required)*
+Identical to the `clientToken` used to get the `accessToken` in the first place
+
+**Response:**
+* Returns `True` unless error thrown
+
+**Example:**
+```python
+from yggdrasil import invalidate
+print(signout(mc['accessToken'], randomClientToken))
 ```
