@@ -32,7 +32,7 @@ from yggdrasil import authenticate
 import random
 
 randomClientToken = random.randint(10000,99999)
-mc = authenticate('test@example.com','p455w0rd', 'Minecraft', 'hello', randomClientToken, False)
+mc = authenticate('test@example.com','p455w0rd', 'Minecraft', randomClientToken, False)
 print(mc['accessToken'])
 ```
 
