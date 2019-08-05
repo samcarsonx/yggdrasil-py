@@ -57,8 +57,7 @@ If set to `True` request for user object too (default is `False`)
 **Example:**
 ```python
 from yggdrasil import refresh
-randomClientToken = "Defined in Authenticate example"
-print(refresh('0123456789abcdef', randomClientToken))
+print(refresh(mc['accessToken'], randomClientToken))
 # Note: invalidates inputted accessToken
 ```
 
@@ -78,8 +77,6 @@ Identical to the `clientToken` used to get the `accessToken` in the first place
 **Example:**
 ```python
 from yggdrasil import validate
-mc = "Defined in Authenticate example"
-randomClientToken = "Defined in Authenticate example"
 print(validate(mc['accessToken'], randomClientToken))
 ```
 
