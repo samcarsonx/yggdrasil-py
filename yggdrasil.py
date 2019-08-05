@@ -17,6 +17,7 @@ def authenticate(username:str, password:str, agentName:str = 'Minecraft', client
       agentName - Agent, defaults to Minecraft, can also be Scrolls
       clientToken - Client identifier, must be random and identical per request
       requestUser - If set to True, request for user object too
+    Returns: Formatted JSON, see API documentation
     '''
     data = json.dumps({"agent":{"name":agentName,"version":1}, "username":username, "password":password, "clientToken":clientToken, "requestUser":requestUser})
     response = json.loads(requests.post(url + '/authenticate', data=data, headers=headers).text)
@@ -30,6 +31,7 @@ def refresh(accessToken:str, clientToken:str, requestUser:bool = False):
       accessToken - Valid accessToken, gained from authenticate()
       clientToken - Identical to the clientToken used to get the accessToken in the first place
       requestUser - If set to True, request for user object too
+    Returns: Formatted JSON, see API documentation
     '''
     data = json.dumps({"accessToken":accessToken, "clientToken":clientToken, "requestUser":requestUser})
     response = json.loads(requests.post(url + '/refresh', data=data, headers=headers).text)
@@ -42,6 +44,7 @@ def validate(accessToken:str, clientToken:str = None):
     Parameters:
       accessToken - Valid accessToken, gained from authenticate()
       clientToken - Identical to the clientToken used to get the accessToken in the first place
+    Returns: Boolean, if accessToken is valid
     '''
     data = json.dumps({"accessToken":accessToken, "clientToken":clientToken})
     try: response = json.loads(requests.post(url + '/validate', data=data, headers=headers).text)
@@ -54,6 +57,7 @@ def signout(username:str, password:str):
     Parameters:
       username - Username of agent/Mojang email (if migrated)
       password - Password for the account used
+    Returns: True if success, otherwise the error
     '''
     data = json.dumps({"username":username, "password":password})
     try: response = json.loads(requests.post(url + '/signout', data=data, headers=headers).text)
@@ -67,6 +71,7 @@ def invalidate(username:str, password:str):
     Parameters:
       accessToken - Valid accessToken, gained from authenticate()
       clientToken - Identical to the clientToken used to get the accessToken in the first place
+    Returns: True if success, otherwise the error
     '''
     data = json.dumps({"accessToken":accessToken, "clientToken":clientToken})
     try: response = json.loads(requests.post(url + '/signout', data=data, headers=headers).text)
