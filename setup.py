@@ -1,8 +1,9 @@
-from distutils.core import setup
+from setuptools import setup
+from os import path
 
-long_description = None
-with open("README.md", "r") as fh:
-    long_description = fh.read()
+this_directory = path.abspath(path.dirname(__file__))
+with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
+    long_description = f.read()
 
 setup(
   name = 'yggdrasil-py',
@@ -11,7 +12,7 @@ setup(
   license='MIT',
   description = 'Python wrapper for Mojang\'s Yggdrasil authentication service.',
   long_description=long_description,
-  long_description_content_type="text/markdown",
+  long_description_content_type='text/markdown',
   author = 'Sam Carson',
   author_email = 'me@samcarson.xyz',
   url = 'https://github.com/samcarsonx/yggdrasil-py',

@@ -3,3 +3,4 @@ yggdrasil/__pycache__
 .DS_Store
 Yggdrasil/.DS_Store
 dist/
+Build/
