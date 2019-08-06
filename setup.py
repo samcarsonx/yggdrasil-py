@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 setup(
   name = 'yggdrasil-py',
   packages = ['yggdrasil'],
-  version = '1.0',
+  version = '1.0.1',
   license='MIT',
   description = 'Python wrapper for Mojang\'s Yggdrasil authentication service.',
   long_description=long_description,
