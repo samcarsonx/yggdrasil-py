@@ -1,1 +1,4 @@
-/__pycache__
+__pycache__
+yggdrasil/__pycache__
+.DS_Store
+Yggdrasil/.DS_Store
