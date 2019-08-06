@@ -1,13 +1,14 @@
 
 # yggdrasil-py
- [![PyPI Version](https://img.shields.io/pypi/v/yggdrasil-py?color=orange)](https://pypi.org/project/yggdrasil-py/)
+ [![PyPI Version](https://img.shields.io/pypi/v/yggdrasil-py)](https://pypi.org/project/yggdrasil-py/)
  [![MIT Licence](https://img.shields.io/github/license/samcarsonx/yggdrasil-py)](https://github.com/samcarsonx/yggdrasil-py/blob/master/LICENSE.txt)
  [![Forks](https://img.shields.io/github/forks/samcarsonx/yggdrasil-py)](https://github.com/samcarsonx/yggdrasil-py/fork)
  ![Stars](https://img.shields.io/github/stars/samcarsonx/yggdrasil-py)
  [![Open Issues](https://img.shields.io/github/issues/samcarsonx/yggdrasil-py)](https://github.com/samcarsonx/yggdrasil-py/issues)
  ![Supported Versions](https://img.shields.io/pypi/pyversions/yggdrasil-py)
  ![Last Commit](https://img.shields.io/github/last-commit/samcarsonx/yggdrasil-py)
- ![Commits since last release](https://img.shields.io/github/commits-since/samcarsonx/yggdrasil-py/latest?color=yellow)
+ ![Commits since last release](https://img.shields.io/github/commits-since/samcarsonx/yggdrasil-py/latest)
+ ![](https://img.shields.io/pypi/status/yggdrasil-py)
 
 Python 3.6+ wrapper by **Sam Carson** for the **Mojang Yggdrasil authentication service.** Please reference [the documentation](https://wiki.vg/Authentication) for extra information.
 
