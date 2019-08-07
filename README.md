@@ -10,7 +10,7 @@
  ![Commits since last release](https://img.shields.io/github/commits-since/samcarsonx/yggdrasil-py/latest)
  ![](https://img.shields.io/pypi/status/yggdrasil-py)
 
-Python 3.6+ wrapper by **Sam Carson** for the **Mojang Yggdrasil authentication service.** Please reference [the documentation](https://wiki.vg/Authentication) for extra information.
+Open-source Python 3.6+ wrapper by **Sam Carson** for the **Mojang Yggdrasil authentication service.** Please reference [the documentation](https://wiki.vg/Authentication) for extra information.
 
 **Install via PyPI using the following command:** `pip install yggdrasil-py`
 
