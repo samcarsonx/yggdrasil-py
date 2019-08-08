@@ -12,7 +12,7 @@ def invalidate(accessToken:str, clientToken:str):
     Returns: True if success, otherwise the error
     '''
     data = json.dumps({"accessToken":accessToken, "clientToken":clientToken})
-    try: response = json.loads(requests.post(url + '/signout', data=data, headers=headers).text)
+    try: response = json.loads(requests.post(url + '/invalidate', data=data, headers=headers).text)
     except json.decoder.JSONDecodeError: return True
     if 'error' in response: raise Exception(f"{response['error']}: {response['errorMessage']}")
     return False

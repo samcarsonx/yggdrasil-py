@@ -4,4 +4,4 @@ yggdrasil/__pycache__
 yggdrasil/.DS_Store
 dist/
 build/
-yggdrasil_py.egg-info
+yggdrasil_py.egg-info/
