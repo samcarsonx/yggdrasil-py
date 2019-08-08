@@ -114,7 +114,7 @@ print(signout('test@example.com','p455w0rd'))
 ## Invalidate
 *Invalidates accessTokens using a client/access token pair.*
 ```python
-def invalidate(username:str, password:str):
+def invalidate(accessToken:str, clientToken:str):
 ```
 **Arguments:**
 * String *(required)*
