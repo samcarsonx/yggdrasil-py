@@ -3,7 +3,7 @@ import requests, json
 url = 'https://authserver.mojang.com'
 headers = {'Content-Type': 'application/json'}
 
-def invalidate(username:str, password:str):
+def invalidate(accessToken:str, clientToken:str):
     '''
     Invalidates accessTokens using a client/access token pair.
     Parameters:
