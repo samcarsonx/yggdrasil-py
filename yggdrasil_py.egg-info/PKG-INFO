@@ -1,12 +1,12 @@
 Metadata-Version: 2.1
 Name: yggdrasil-py
-Version: 1.0.5
+Version: 1.0.6
 Summary: Python wrapper for Mojang's Yggdrasil authentication service.
 Home-page: https://github.com/samcarsonx/yggdrasil-py
 Author: Sam Carson
 Author-email: me@samcarson.xyz
 License: MIT
-Download-URL: https://github.com/samcarsonx/yggdrasil-py/archive/1.0.5.tar.gz
+Download-URL: https://github.com/samcarsonx/yggdrasil-py/archive/1.0.6.tar.gz
 Description: 
         # yggdrasil-py
          [![PyPI Version](https://img.shields.io/pypi/v/yggdrasil-py)](https://pypi.org/project/yggdrasil-py/)
