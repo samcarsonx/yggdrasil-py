@@ -1,6 +1,7 @@
 __pycache__
 yggdrasil/__pycache__
 .DS_Store
-Yggdrasil/.DS_Store
+yggdrasil/.DS_Store
 dist/
-Build/
+build/
+yggdrasil_py.egg-info
