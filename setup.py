@@ -8,7 +8,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 setup(
   name = 'yggdrasil-py',
   packages = ['yggdrasil'],
-  version = '1.0.7',
+  version = '1.0.6',
   license='MIT',
   description = 'Python wrapper for Mojang\'s Yggdrasil authentication service.',
   long_description=long_description,
@@ -16,9 +16,9 @@ setup(
   author = 'Sam Carson',
   author_email = 'me@samcarson.xyz',
   url = 'https://github.com/samcarsonx/yggdrasil-py',
-  download_url = 'https://github.com/samcarsonx/yggdrasil-py/archive/1.0.7.tar.gz',
+  download_url = 'https://github.com/samcarsonx/yggdrasil-py/archive/1.0.6.tar.gz',
   keywords = ['mojang','yggdrasil','minecraft','scrolls','authentication'],
-  install_requires = ['requests'],
+  install_requires = [],
   classifiers=[
     'Development Status :: 5 - Production/Stable',
     'Intended Audience :: Developers',
