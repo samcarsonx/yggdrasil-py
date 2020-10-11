@@ -18,10 +18,12 @@ This wrapper is supported only for Python 3.6 and above because of the use of f-
 
 Minecraft 1.6 introduced a new authentication scheme called **Yggdrasil** which completely replaces the [previous authentication system](https://wiki.vg/Legacy_Authentication "Legacy Authentication"). Mojang's other game, Scrolls, uses this method of authentication as well.
 
+Since a recent [pull request](https://github.com/samcarsonx/yggdrasil-py/pull/1), support has been added for custom authentication servers. As far as I am aware, the only instance of this is [ely.by](https://ely.by).
+
 ## Authenticate
 *Authenticates a user using their password.*
 ```python
-def authenticate(username:str, password:str, agentName:str = 'Minecraft', clientToken:str = None, requestUser:str = False):
+def authenticate(username:str, password:str, agentName:str = 'Minecraft', clientToken:str = None, requestUser:str = False, authServer:str = url):
 ```
 **Arguments:**
 * String *(required)*
@@ -34,6 +36,8 @@ Agent, defaults to `Minecraft`, can also be `Scrolls`
 Client identifier, must be random and identical per request
 * Boolean *(optional)*
 If set to `True` request for user object too (default is `False`)
+* String *(optional)*
+Custom authentication server. Defaults to `https://authserver.mojang.com`
 
 **Response:**
 * Check the Authenticate section of [the documentation](https://wiki.vg/Authentication#Authenticate) for details.
@@ -51,7 +55,7 @@ print(mc['accessToken'])
 ## Refresh
 *Refreshes a valid accessToken. It can be used to keep a user logged in between gaming sessions and is preferred over storing the user's password in a file.*
 ```python
-def refresh(accessToken:str, clientToken:str, requestUser:bool = False):
+def refresh(accessToken:str, clientToken:str, requestUser:bool = False, authServer:str = url):
 ```
 **Arguments:**
 * String *(required)*
@@ -60,6 +64,8 @@ Valid `accessToken`, gained from `authenticate()`
 Identical to the `clientToken` used to get the `accessToken` in the first place
 * Boolean *(optional)*
 If set to `True` request for user object too (default is `False`)
+* String *(optional)*
+Custom authentication server. Defaults to `https://authserver.mojang.com`
 
 **Response:**
 * Check the Refresh section of [the documentation](https://wiki.vg/Authentication#Refresh) for details.
@@ -74,13 +80,15 @@ print(refresh(mc['accessToken'], randomClientToken))
 ## Validate
 *Checks if an accessToken is usable for authentication with a Minecraft server.*
 ```python
-def validate(accessToken:str, clientToken:str = None):
+def validate(accessToken:str, clientToken:str = None, authServer:str = url):
 ```
 **Arguments:**
 * String *(required)*
 Valid `accessToken`, gained from `authenticate()`
 * String *(optional)*
 Identical to the `clientToken` used to get the `accessToken` in the first place
+* String *(optional)*
+Custom authentication server. Defaults to `https://authserver.mojang.com`
 
 **Response:**
 * Returns Boolean for whether `accessToken` is valid (and `clientToken` match, if defined)
@@ -94,13 +102,15 @@ print(validate(mc['accessToken'], randomClientToken))
 ## Signout
 *Invalidates accessTokens using an account's username and password.*
 ```python
-def signout(username:str, password:str):
+def signout(username:str, password:str, authServer:str = url):
 ```
 **Arguments:**
 * String *(required)*
 Username of agent/Mojang email (if migrated)
 * String *(required)*
 Password for the account used
+* String *(optional)*
+Custom authentication server. Defaults to `https://authserver.mojang.com`
 
 **Response:**
 * Returns `True` unless error thrown
@@ -114,13 +124,15 @@ print(signout('test@example.com','p455w0rd'))
 ## Invalidate
 *Invalidates accessTokens using a client/access token pair.*
 ```python
-def invalidate(accessToken:str, clientToken:str):
+def invalidate(accessToken:str, clientToken:str, authServer:str = url):
 ```
 **Arguments:**
 * String *(required)*
 Valid `accessToken`, gained from `authenticate()`
 * String *(required)*
 Identical to the `clientToken` used to get the `accessToken` in the first place
+* String *(optional)*
+Custom authentication server. Defaults to `https://authserver.mojang.com`
 
 **Response:**
 * Returns `True` unless error thrown
