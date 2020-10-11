@@ -10,4 +10,5 @@ yggdrasil/validate.py
 yggdrasil_py.egg-info/PKG-INFO
 yggdrasil_py.egg-info/SOURCES.txt
 yggdrasil_py.egg-info/dependency_links.txt
+yggdrasil_py.egg-info/requires.txt
 yggdrasil_py.egg-info/top_level.txt
